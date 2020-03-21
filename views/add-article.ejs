@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard Plastico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="chart.css" />
+    <link href="https://fonts.googleapis.com/css?family=OpenSans" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="StyleSheet" href="/css/notify.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="js/firebase_config.js"></script>
+    <script src="js/login_checker.js"></script>
+</head>
+
+<body class="bg-1">
+    <!--loading-->
+    <div class="loading">Loading&#8230;</div>
+
+    <!-- TOP-NAVBAR -->
+    <div class="top-navbar">
+        <div class="topnav-container">
+            <a class="logout" onClick="logout()" href="javascript:void(0)" style="font-weight: bold; float: right;">Logout</a>
+        </div>
+    </div>
+
+    <!-- SIDE NAVIGATION BAR -->
+    <div class="sidenav">
+        <div class="container sidenav-container">
+            <!-- P Logo  -->
+            <img class="logo" src="img/plastico_p-02.png">
+            <hr class="light">
+
+            <!-- SIDENAVBAR MENU -->
+            <a href="dashboard">
+                <i class="fa fa-home" aria-hidden="true" style="padding-right: 10px;"></i>Dashboard
+            </a>
+            <a href="bin">
+                <i class="fa fa-trash" aria-hidden="true" style="padding-right: 10px;"></i>Bin</a>
+            <a href="user">
+                <i class="fa fa-users" aria-hidden="true" style="padding-right: 10px;"></i>User</a>
+            <a class="active" href="article">
+                <i class="fa fa-newspaper-o" aria-hidden="true" style="padding-right: 10px;"></i>Article</a>
+            <a href="goals">
+                <i class="fa fa-trophy" aria-hidden="true" style="padding-right: 10px;"></i>Goals</a>
+            <a href="rewards">
+                <i class="fa fa-money" aria-hidden="true" style="padding-right: 10px;"></i>Reward</a>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="main">
+        <div class="row">
+            <div class="container" style="padding-bottom: 30px;">
+                <h3>Add New Article</h3>
+            </div>
+
+            <div class="container" style="padding-bottom: 30px;">
+                <div class="card">
+                    <div class="container" style="text-align: left;">
+                        <form name="add-article" action="javascript:voind(0)">
+                            <!-- Title  -->
+                            <div class="row">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" name="title" placeholder="Article title.." required>
+                            </div>
+
+                            <!-- Author -->
+                            <div class="row">
+                                <label for="author">Author</label>
+                                <input type="text" id="author" name="author" placeholder="Enter author's name.." required>
+                            </div>
+
+                            <!-- Date -->
+                            <div class="row">
+                                <label for="date_article">Added Date</label>
+                                <input type="date" id="datepicker" name="date" class="datepicker" required>
+                            </div>
+
+                            <!-- Article Content  -->
+                            <div class="row">
+                                <label for="content">Content</label>
+                                <textarea id="content" rows="10" cols="50" name="content" form="content" placeholder="Enter article's content..." required> </textarea>
+                                <!-- <input type="text" rows="10" cols="100" id="content" name="content" placeholder="Enter article's content.." required> -->
+                            </div>
+
+                            <!-- Image Article  -->
+                            <div class="row">
+                                <label for="image_article">Image URL</label>
+                                <input type="text" id="image" name="image" placeholder="Image URL..">
+                            </div>
+
+                            <!-- Publish Button -->
+                            <label style="padding-top:40px" for="submit"></label>
+                            <input type="submit" id="Publish" name="Publish" value="Publish">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $.datepicker.setDefaults(jQuery.extend(
+        $.datepicker.regional['nl'], {
+            dateFormat: 'yyyy-mm-dd'
+        }
+    ));
+</script>
+
+<script src="js/publish_article.js"></script>
+<script type="text/javascript" src="/js/notify.js"></script>
+
+</html>

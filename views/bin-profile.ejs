@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard Plastico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="chart.css" />
+    <link href="https://fonts.googleapis.com/css?family=OpenSans" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="js/firebase_config.js"></script>
+    <script src="js/login_checker.js"></script>
+</head>
+
+<body class="bg-1">
+    <!--loading-->
+    <div class="loading">Loading&#8230;</div>
+
+    <!-- TOP-NAVBAR -->
+    <div class="top-navbar">
+        <div class="topnav-container">
+            <a class="logout" onClick="logout()" href="javascript:void(0)" style="font-weight: bold; float: right;">Logout</a>
+        </div>
+    </div>
+
+    <!-- SIDE NAVIGATION BAR -->
+    <div class="sidenav">
+        <div class="container sidenav-container">
+            <!-- P Logo  -->
+            <img class="logo" src="img/plastico_p-02.png">
+            <hr class="light">
+
+            <!-- SIDENAVBAR MENU -->
+            <a href="dashboard">
+                <i class="fa fa-home" aria-hidden="true" style="padding-right: 10px;"></i>Dashboard
+            </a>
+            <a class="active" href="bin">
+                <i class="fa fa-trash" aria-hidden="true" style="padding-right: 10px;"></i>Bin</a>
+            <a href="user">
+                <i class="fa fa-users" aria-hidden="true" style="padding-right: 10px;"></i>User</a>
+            <a href="article">
+                <i class="fa fa-newspaper-o" aria-hidden="true" style="padding-right: 10px;"></i>Article</a>
+            <a href="goals">
+                <i class="fa fa-trophy" aria-hidden="true" style="padding-right: 10px;"></i>Goals</a>
+            <a href="rewards">
+                <i class="fa fa-money" aria-hidden="true" style="padding-right: 10px;"></i>Reward</a>
+        </div>
+    </div>
+
+    <!-- CONTENT  -->
+    <div class="main">
+        <div class="row">
+            <div class="container" style="padding-bottom:30px">
+                <h3>Bin Detail</h3>
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom:30px">
+            <div class="col-lg-12 col-md-8">
+                <div class="card">
+
+                    <!-- GRAPHIC -->
+                    <div class="row">
+                        <div class="bar">
+                            <div class="fullness bin"><b>30%</b></div>
+                        </div>
+                    </div>
+
+                    <!-- INFORMATION -->
+                    <div class="row" style="padding-top:20px">
+                        <div class="container">
+                            <b><h5 style="padding-bottom: 20px;">Plastico Bin <span name="name" id="name"></span></h5></b>
+                            <div class="row">
+                                <div class="col-3" style="padding-left:50px">
+                                    <b><span>Address</span></b>
+                                </div>
+                                <div class="col-5">
+                                    <span id="address"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-left:50px">
+                                    <b><span>Status</span></b>
+                                </div>
+                                <div class="col-5">
+                                    <a id="activeButton" href="javascript:void(0)" class="button4" style="background-color:#9b9191">Active</a>
+                                    <a id="inactiveButton" href="javascript:void(0)" class="button4" style="background-color:#9b9191">Inactive</a>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-left:50px">
+                                    <b><span>Last Accessed</span></b>
+                                </div>
+                                <div class="col-5">
+                                    <p id="last_accessed"></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-left:50px">
+                                    <b><span>QR Code</span></b>
+                                </div>
+                                <div class="col-5">
+                                    <canvas id="qrCode"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BIN USAGE HISTORY -->
+        <div class="row" style="padding-bottom:30px">
+            <div class="col-lg-12 col-md-8">
+                <div class="card">
+                    <h4>Bin Usage Graph</h4>
+                    <p>Here is the graph of bin's monthly usage.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+<script src="js/bin-profile.js"></script>
+<script src="js/qrcode.min.js"></script>
+
+</html>
