@@ -14,3 +14,22 @@ userchart.once("value", function(snapshot) {
     }
     alert(binactivity);
 });
+
+var ctx = document.getElementById("lineChart").getContext("2d");
+var lineChart = new Chart(ctx, {
+    type: 'line',
+    data: [{
+        x: 10,
+        y: 20
+    }, {
+        x: 15,
+        y: 10
+    }],
+    options: {
+        scales: {
+            yAxes: [{
+                stacked: true
+            }]
+        }
+    }
+});
