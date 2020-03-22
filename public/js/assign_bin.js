@@ -23,6 +23,7 @@ $("#Submit").click(function() {
             for (i = 0; i < x.length; i++) {
                 city += x[i].childNodes[0].nodeValue;
             }
+
             loc = String(staddress) + ", " + String(addrstreet) + ", " + String(city);
 
             //push to firebase
@@ -37,14 +38,9 @@ $("#Submit").click(function() {
                 "bin_capacity": 0,
                 "user_id": "",
                 "name": "",
-                "qrcode": QRCode
             }).then((snapshot) => {
                 //generate uid per data push
                 refBin.child(snapshot.key).update({ "bin_id": snapshot.key })
-                    //generate qr code for new assigned bin
-                QRCode.toCanvas(document.getElementById('qrCode'), String(snapshot.key), function(error) {
-
-                })
 
                 //reset form field
                 $("#binName").val("")

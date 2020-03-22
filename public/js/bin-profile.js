@@ -14,7 +14,7 @@ refBinData.on('value', function(snapshot) {
     $("#name").html(snapshot.child("bin_name").val());
     $("#address").html(snapshot.child("address").val());
     $("#last_accessed").html(snapshot.child("last_accessed").val());
-    $("#qrCode").html(snapshot.child("qrcode").val());
+    QRCode.toCanvas(document.getElementById('qrCode'), String(snapshot.key), function(error) {});
 
     //membaca status
     stat = snapshot.child("bin_status").val();
