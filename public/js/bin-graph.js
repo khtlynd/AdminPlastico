@@ -11,7 +11,7 @@ function changeChart(year) {
         var month = i;
         var binactivity = 0;
         for (var x = 0; x < ulength; x++) {
-            if (fromuserjson[userdata[x]]["month"] == month && fromuserjson[userdata[x]]["year"] == year && fromuserjson[userdata[x]]["bin_id"] == x) {
+            if (fromuserjson[userdata[x]]["month"] == month && fromuserjson[userdata[x]]["year"] == year) {
                 binactivity = binactivity + 1
             }
         }
@@ -71,3 +71,21 @@ userchart.once("value", function(snapshot) {
 $("#selectYear").change(function() {
     changeChart($(this).val());
 });
+
+// var binarray = [];
+// var binjson = "";
+// var frombinjson = "";
+// var bindata = "";
+
+// var listbin = firebase.database().ref("bin");
+// listbin.once("value", function(snapshot) {
+//     var binjson = JSON.stringify(snapshot);
+//     frombinjson = JSON.parse(binjson);
+//     bindata = Object.keys(frombinjson);
+//     // length = Object.keys(bindata).length;
+
+//     for (var i = 0; i < bindata.length; i++) {
+//         alert(frombinjson[1]);
+//     }
+
+// })

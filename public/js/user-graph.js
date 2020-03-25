@@ -4,7 +4,7 @@ var userdata = "";
 var ulength = "";
 var lineChart = "";
 
-function changeChart(year) {
+function changingChart(year) {
     binArray = [];
 
     for (var i = 1; i <= 12; i++) {
@@ -61,10 +61,10 @@ userchart.once("value", function(snapshot) {
     userdata = Object.keys(fromuserjson);
     ulength = Object.keys(userdata).length;
 
-    changeChart($("#selYear").val())
+    changingChart($("#selYear").val())
 });
 
 //deteksi perubahan dropdown year
 $("#selYear").change(function() {
-    changeChart($(this).val());
+    changingChart($(this).val());
 });
