@@ -23,11 +23,6 @@ function changeChart(year) {
         type: 'bar',
         data: {
             labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags", "Sep", "Oct", "Nov", "Dec"],
-            // datasets: [{
-            //     data: binArray,
-            //     label: "Sum of Activity",
-            //     backgroundColor: "#3e95cd",
-            // }]
             datasets: [{
                 label: "Bin A",
                 backgroundColor: "#3e95cd",
