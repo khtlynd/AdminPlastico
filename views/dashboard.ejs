@@ -106,7 +106,7 @@
                         </div>
                         <div class="col-sm-8">
                             <h6>Almost-Full Bin</h6>
-                            <h1 id="almostFullBin"></h1>
+                            <h1 id="almostFullBin">1</h1>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col-sm-8">
                             <h6>Daily Total Weight</h6>
-                            <h1 id="totalWeight"></h1>
+                            <h1 id="totalWeight">12 kg</h1>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,18 @@
                 <div class="card">
                     <h5>Bin Activity Graph</h5>
                     <p>This graph will show the total activity of Plastico bin on monthly base.</p>
+
+                    <div class="form-group" style="text-align: center;">
+                        <label for="selectYear">Select Year :</label>
+                        <select class="form-control" id="selectYear" style="width: 100px;">
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                        </select>
+                    </div>
+
                     <div class="chart">
-                        <canvas id="binperfChart" width="100%"></canvas>
+                        <canvas id="barChart" width="100%"></canvas>
                     </div>
                 </div>
             </div>
@@ -148,6 +158,16 @@
                 <div class="card">
                     <h5>Users Activity Graph</h5>
                     <p>This graph will show the total users's activity to Plastico smart-bin on monthly base.</p>
+
+                    <div class="form-group" style="text-align: center;">
+                        <label id="year" for="selYear">Select Year :</label>
+                        <select class="form-control" id="selYear" style="width: 100px;">
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                        </select>
+                    </div>
+
                     <div class="chart">
                         <canvas id="lineChart" width="100%"></canvas>
                     </div>

@@ -31,14 +31,6 @@ refDataUser.once('value', function(snapshot) {
 
 });
 
-var refUserBin = firebase.database().ref("userBin");
-refUserBin
-    .orderByChild('year')
-    .equalTo('2020')
-    .on('child_added', function(snapshot) {
-        alert(snapshot.val())
-    });
-
 $("#reactButton").click(function() {
     //push firebase
     refDataUser.update({

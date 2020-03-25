@@ -6,8 +6,27 @@ refGoals.on('child_added', function(snapshot) {
     <td>` + snapshot.child("exp_period").val() + ` days</td>
     <td>` + snapshot.child("target").val() + ` times</td>
     <td>` + snapshot.child("extra_point").val() + ` pts</td>
+    <td><button class="btnDelete" onclick="btnDelete('` + snapshot.key + `')">Delete</button></td>
 </tr>`
 
     //Function to show data in table
     $("#dataGoals").append(dataGoals).hide().show('fast');
 })
+
+//to delete content
+function btnDelete(uid) {
+    // $(".loading").show();
+    refGoals.child(uid).set({
+        "goals_id": null
+    }, function(error) {
+        if (error) {
+            // The write failed...
+            alert("Unable to delete data.")
+            $(".loading").hide();
+        } else {
+            // Data saved successfully!
+            $(".loading").hide();
+            window.location.reload(true)
+        }
+    });
+}
