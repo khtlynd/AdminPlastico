@@ -1,0 +1,52 @@
+<head>
+    <title>Bin | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="bg-1">
+    <header>
+        <%- include('partials/header.ejs') %>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="main">
+        <div class="row">
+            <div class="container" syle="padding-bottom:30px">
+                <h3>Assign New Bin</h3>
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 30px">
+            <div class="card">
+                <div class="container" style="text-align: left">
+                    <form action="javascript:void(0)">
+                        <label for="name-bin"><b>Bin Name</b></label>
+                        <input type="text" id="binName" name="name" placeholder="Enter new Plastico Bin name.." required>
+
+                        <label style="padding-top:20px" for="longitude"><b>Longitude (E / -W)</b></label>
+                        <input type="text" id="binLongitude" name="longitude" placeholder="Enter new Plastico Bin longitude location.." required>
+
+                        <label style="padding-top:20px" for="latitude"><b>Latitude (N / -S)</b></label>
+                        <input type="text" id="binLatitude" name="latitude" placeholder="Enter new Plastico Bin latitude location.." required>
+
+                        <label style="padding-top:40px" for="submit"></label>
+                        <input type="submit" id="Submit" name="Submit" value="Submit">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<footer>
+    <%- include('partials/footer.ejs') %>
+</footer>
+
+<%- include('partials/script.ejs') %>
+
+
+    <script type="text/javascript" src="/js/notify.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/assign_bin.js"></script>

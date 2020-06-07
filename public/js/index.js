@@ -22,3 +22,16 @@ function login() {
     });
 
 }
+
+function register() {
+    var userEmail = document.getElementById("email_field").value;
+    var userPass = document.getElementById("password_field").value;
+    var tokenNum = document.getElementById("token_field").value;
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+        if (tokenNum == "admin1029token") {
+            window.location.href = "dashboard"
+        } else {
+            window.alert("Error : " + errorMessage);
+        }
+    });
+}

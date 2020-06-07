@@ -1,0 +1,169 @@
+<head>
+    <title>Bin | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="bg-1">
+    <%- include('partials/header.ejs') %>
+
+        <!-- CONTENT  -->
+        <div class="main">
+            <div class="row">
+                <div class="container" style="padding-bottom:30px">
+                    <h3>Bin Detail</h3>
+                </div>
+            </div>
+
+            <div class="row" style="padding-bottom:30px">
+                <div class="col-lg-12 col-md-8">
+                    <div class="card">
+
+                        <!-- GRAPHIC -->
+                        <div class="row">
+                            <div class="bar">
+                                <div class="fullness bin"><b>30%</b></div>
+                            </div>
+                        </div>
+
+                        <!-- INFORMATION -->
+                        <div class="row" style="padding-top:20px">
+                            <div class="container">
+                                <b><h5 style="padding-bottom: 20px;">Plastico Bin <span name="name" id="name"></span></h5></b>
+                                <div class="row">
+                                    <div class="col-3" style="padding-left:50px">
+                                        <b><span>Address</span></b>
+                                    </div>
+                                    <div class="col-5">
+                                        <span id="address"></span>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-3" style="padding-left:50px">
+                                        <b><span>Status</span></b>
+                                    </div>
+                                    <div class="col-5">
+                                        <a id="activeButton" href="javascript:void(0)" class="button4" style="background-color:#9b9191">Active</a>
+                                        <a id="inactiveButton" href="javascript:void(0)" class="button4" style="background-color:#9b9191">Inactive</a>
+
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-3" style="padding-left:50px">
+                                        <b><span>Last Accessed</span></b>
+                                    </div>
+                                    <div class="col-5">
+                                        <p id="last_accessed"></p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-3" style="padding-left:50px">
+                                        <b><span>QR Code</span></b>
+                                    </div>
+                                    <div class="col-5">
+                                        <canvas id="qrCode"></canvas>
+                                        <p id="bin_id"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BIN USAGE HISTORY -->
+            <div class="row" style="padding-bottom:30px">
+                <div class="col-lg-12 col-md-8">
+                    <div class="card">
+                        <h4>Bin Usage Graph</h4>
+                        <p>Here is the graph of bin's monthly usage.</p>
+                        <div class="row">
+                            <div class="form-group" style="margin-left: 15px;margin-right: 15px;">
+                                <label id="year" for="selYear">Select Year :</label>
+                                <select class="form-control" id="selYear" style="width: 100px;">
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label id="month" for="selMonth">Select Month :</label>
+                                <select class="form-control" id="selMonth" style="width: 100px;">
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                            <canvas id="lineChart" width="1196" height="597" class="chartjs-render-monitor" style="display: block; height: 478px; width: 957px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BIN USER HISTORY -->
+            <div class="row" style="padding-bottom:30px">
+                <div class="col-lg-12 col-md-8">
+                    <div class="card">
+                        <h4>Bin User Graph</h4>
+                        <p>Here is the graph of user's monthly usage.</p>
+                        <div class="row">
+                            <div class="form-group" style="margin-left: 15px;margin-right: 15px;">
+                                <label id="year" for="selYearUser">Select Year :</label>
+                                <select class="form-control" id="selYearUser" style="width: 100px;">
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-right: 15px;">
+                                <label id="month" for="selMonthUser">Select Month :</label>
+                                <select class="form-control" id="selMonthUser" style="width: 100px;">
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label id="userData" for="selUser">Select User :</label>
+                                <select class="form-control" id="selUser" style="width: 100px;">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                            <canvas id="lineChart2" width="1196" height="597" class="chartjs-render-monitor" style="display: block; height: 478px; width: 957px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<footer>
+    <%- include('partials/footer.ejs') %>
+</footer>
+
+<%- include('partials/script.ejs') %>
+
+    <script src="js/bin-profile.js"></script>
+    <script src="js/qrcode.min.js"></script>

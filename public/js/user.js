@@ -3,7 +3,7 @@ refUser.on('child_added', function(snapshot) {
 
     //membaca data user
     dataUser = `<tr class="table-row">
-        <td><a href="user-profile?id=` + snapshot.key + `">` + snapshot.child("full_name").val() + `</a></td>
+        <td><a href="user_profile?id=` + snapshot.key + `">` + snapshot.child("full_name").val() + `</a></td>
         <td>@` + snapshot.child("username").val() + ` </td>
         <td>` + snapshot.child("email").val() + `</td>
         <td>` + snapshot.child("current_point").val() + ` pts </td>

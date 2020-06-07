@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Rewards | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="bg-1">
+    <header>
+        <%- include('partials/header.ejs') %>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="main">
+        <div class="row">
+            <div class="container" style="padding-bottom: 30px;">
+                <h3>Add Rewards</h3>
+            </div>
+
+            <div class="container" style="padding-bottom: 30px;">
+                <div class="card">
+                    <div class="container" style="text-align: left;">
+                        <form name="add-article" action="javascript:voind(0)">
+                            <!-- Reward Name  -->
+                            <div class="row">
+                                <label for="reward-name">Reward Name</label>
+                                <input type="text" id="rname" name="rname" placeholder="Reward's name..." required>
+                            </div>
+
+
+                            <!-- Reward Content  -->
+                            <div class="row">
+                                <label for="content">Content</label>
+                                <textarea id="content" rows="5" name="content" form="content" placeholder="Enter reward's content..." required> </textarea>
+                                <!-- <input type="text" rows="10" cols="100" id="content" name="content" placeholder="Enter article's content.." required> -->
+                            </div>
+
+                            <!-- Redeem Point  -->
+                            <div class="row">
+                                <label for="redeem-point">Redeem Point</label>
+                                <input type="number" id="rpoint" name="rpoint" placeholder="Redeem point...">
+                            </div>
+
+                            <!-- Image Article  -->
+                            <div class="row">
+                                <label for="image-reward">Image URL</label>
+                                <input type="text" id="rimage" name="image" placeholder="Image URL..">
+                            </div>
+
+                            <!-- Publish Button -->
+                            <label style="padding-top:40px" for="submit"></label>
+                            <input type="submit" id="submit-reward" name="submit-reward" value="Submit Reward">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <%- include('partials/footer.ejs') %>
+</footer>
+
+<%- include('partials/script.ejs') %>
+
+    <script src="js/add-rewards.js"></script>
+    <script type="text/javascript" src="/js/notify.js"></script>
+
+    <script>
+    </script>
+
+</html>

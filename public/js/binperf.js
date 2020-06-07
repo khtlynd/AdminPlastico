@@ -3,7 +3,7 @@ var refBin = firebase.database().ref("bin");
 refBin.on('child_added', function(snapshot) {
 
     dataBin = `<tr class="table-row">
-    <td><a href="bin-profile?id=` + snapshot.key + `">Plastico Bin ` + snapshot.child("bin_name").val() + `</a></td>
+    <td><a href="bin_profile?id=` + snapshot.key + `">Plastico Bin ` + snapshot.child("bin_name").val() + `</a></td>
     <td>` + snapshot.child("address").val() + `</td>
     <td>` + snapshot.child("bin_status").val() + `</td>
 </tr>`

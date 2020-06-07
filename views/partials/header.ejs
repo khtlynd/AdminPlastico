@@ -1,0 +1,91 @@
+<!--loading-->
+<div class="loading">Loading&#8230;</div>
+
+<!-- TOP-NAVBAR -->
+<div class="top-navbar">
+    <div class="topnav-container">
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-lg-1">
+                <div class="dropdown">
+                    <button onclick="" class="dropbtn">
+                        <img src="/img/bell.svg" width="30%">
+                    </button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <button class="navbtn">
+                    <b onclick="logout()" href="javascript:void(0)">Logout</b>
+                </button>
+            </div>
+        </div>
+        <!-- <div class="dropdown">
+            <button onclick="#" class="dropbtn">
+                <img src="/img/bell.svg" width="5%">
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div> -->
+        <!-- <button class="navbtn">
+            <b class="logout" onclick="logout()" href="javascript:void(0)">Logout</b>
+        </button> -->
+        <!--<div class="col-lg-1">
+                <a class="logout" onClick="logout()" href="javascript:void(0)" style="font-weight: bold; float: right;">Logout</a>
+            </div> -->
+
+    </div>
+</div>
+
+<!-- SIDE NAVIGATION BAR -->
+<div class="sidenav">
+    <div class="container sidenav-container">
+        <!-- P Logo  -->
+        <img class="logo" src="img/plastico_p-02.png">
+        <hr class="light">
+
+        <!-- SIDENAVBAR MENU -->
+        <a href="dashboard">
+            <i class="fa fa-home" aria-hidden="true" style="padding-right: 5px;"></i>Dashboard
+        </a>
+        <a href="bin">
+            <i class="fa fa-trash" aria-hidden="true" style="padding-right: 5px;"></i>Bin</a>
+        <a href="user">
+            <i class="fa fa-users" aria-hidden="true" style="padding-right: 5px;"></i>User</a>
+        <a href="article">
+            <i class="fa fa-newspaper-o" aria-hidden="true" style="padding-right: 5px;"></i>User Article</a>
+        <a href="goals">
+            <i class="fa fa-trophy" aria-hidden="true" style="padding-right: 5px;"></i>User Goals</a>
+        <a href="rewards">
+            <i class="fa fa-money" aria-hidden="true" style="padding-right: 5px;"></i>User Reward</a>
+        <a href="notification">
+            <i class="fa fa-bell" aria-hidden="true" style="padding-right: 5px;"></i>Notification</a>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>

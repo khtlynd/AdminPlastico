@@ -1,5 +1,5 @@
 <head>
-    <title>Login | Welcome to Plastico</title>
+    <title>Register | Welcome to Plastico</title>
     <%- include('partials/head.ejs') %>
 </head>
 
@@ -8,14 +8,14 @@
     <div class="loading">Loading&#8230;</div>
 
     <div class="container">
-        <h1 style="color:white;text-align:center"><b>Welcome back!</b></h1>
-        <h5 style="color:white;text-align:center; padding-bottom:30px">You need to login before accessing Plastico.</h5>
+        <h1 style="color:white;text-align:center"><b>Welcome!</b></h1>
+        <h5 style="color:white;text-align:center; padding-bottom:30px">Register new admin account here.</h5>
 
         <center>
             <div class="card-1" style="width: 50%;">
                 <div class="container" style="text-align: left;">
                     <div>
-                        <img src="/img/plastico_logo_new-02.png" style="width: 30%; ">
+                        <img src="/img/plastico_logo_new-02.png" style="width: 30%;">
                         <hr>
                     </div>
                     <form action="javascript:void(0)">
@@ -25,10 +25,13 @@
                         <label for="password" style="padding-top:30px"><b>Password</b></label>
                         <input type="password" id="password_field" name="Password" placeholder="Enter your password.." required>
 
+                        <!-- <label for="token" style="padding-top:30px"><b>Token</b></label>
+                        <input type="text" id="token_field" name="Token" placeholder="Enter token number.." required> -->
+
                         <div class="container" style="padding-top:30px">
-                            <center><input type="submit" value="Login" onClick="login()" style="padding-top: 15px; text-align: center; padding-bottom:15px;"></center>
+                            <center><input type="submit" value="Register" onClick="register()" style="padding-top: 15px; text-align: center; padding-bottom:15px;"></center>
                         </div>
-                        <b><p style="text-align: right; color:grey">Click here to <a href="/register">Register</a>.</p></b>
+                        <b><p style="text-align: right; color:grey">Already have account? <a href="/login">Login</a>.</p></b>
                     </form>
 
                 </div>

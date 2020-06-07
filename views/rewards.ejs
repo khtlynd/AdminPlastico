@@ -2,100 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard Plastico</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="chart.css" />
-    <link href="https://fonts.googleapis.com/css?family=OpenSans" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-    <link rel="stylesheet" href="/static/style.css" />
-    <link rel="StyleSheet" href="/css/notify.css" type="text/css" media="all" />
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-    <script src="js/firebase_config.js"></script>
-    <script src="js/login_checker.js"></script>
+    <title>User Rewards | Plastico</title>
+    <%- include('partials/head.ejs') %>
 </head>
 
 <body class="bg-1">
-    <!--loading-->
-    <div class="loading">Loading&#8230;</div>
+    <%- include('partials/header.ejs') %>
 
-    <!-- TOP-NAVBAR -->
-    <div class="top-navbar">
-        <div class="topnav-container">
-            <a class="logout" onClick="logout()" href="javascript:void(0)" style="font-weight: bold; float: right;">Logout</a>
-        </div>
-    </div>
+        <!-- CONTENT -->
+        <div class="main">
+            <div class="row">
+                <div class="container" style="padding-bottom: 30px;">
+                    <h3>Rewards</h3>
+                </div>
 
-    <!-- SIDE NAVIGATION BAR -->
-    <div class="sidenav">
-        <div class="container sidenav-container">
-            <!-- P Logo  -->
-            <img class="logo" src="img/plastico_p-02.png">
-            <hr class="light">
-
-            <!-- SIDENAVBAR MENU -->
-            <a href="dashboard">
-                <i class="fa fa-home" aria-hidden="true" style="padding-right: 10px;"></i>Dashboard
-            </a>
-            <a href="bin">
-                <i class="fa fa-trash" aria-hidden="true" style="padding-right: 10px;"></i>Bin</a>
-            <a href="user">
-                <i class="fa fa-users" aria-hidden="true" style="padding-right: 10px;"></i>User</a>
-            <a href="article">
-                <i class="fa fa-newspaper-o" aria-hidden="true" style="padding-right: 10px;"></i>Article</a>
-            <a href="goals">
-                <i class="fa fa-trophy" aria-hidden="true" style="padding-right: 10px;"></i>Goals</a>
-            <a class="active" Shref="rewards">
-                <i class="fa fa-money" aria-hidden="true" style="padding-right: 10px;"></i>Reward</a>
-        </div>
-    </div>
-
-    <!-- CONTENT -->
-    <div class="main">
-        <div class="row">
-            <div class="container" style="padding-bottom: 30px;">
-                <h3>Rewards</h3>
-            </div>
-
-            <!-- Card -->
-            <div class="row" style="padding-bottom: 30px;">
-                <div class="col-lg-12">
-                    <div class="card col-lg-12 col-md-12">
-                        <table id="dataRewards">
-                            <thead>
-                                <tr>
-                                    <th>Reward Name</th>
-                                    <th>Content</th>
-                                    <th>Redeem Point</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                        </table>
+                <!-- Card -->
+                <div class="row" style="padding-bottom: 30px;">
+                    <div class="col-lg-12">
+                        <div class="card col-lg-12 col-md-12">
+                            <table id="dataRewards">
+                                <thead>
+                                    <tr>
+                                        <th>Reward Name</th>
+                                        <th>Content</th>
+                                        <th>Redeem Point</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Add reward button  -->
-            <div class="container">
-                <b><a href="add-rewards" class="button ">Add New Reward</a></b>
+                <!-- Add reward button  -->
+                <div class="container">
+                    <b><a href="add_rewards" class="button ">Add New Reward</a></b>
+                </div>
             </div>
         </div>
-    </div>
 </body>
+<footer>
+    <%- include('partials/footer.ejs') %>
+</footer>
 
-<script src="js/rewards.js"></script>
-<script type="text/javascript" src="/js/notify.js"></script>
+<%- include('partials/script.ejs') %>
+
+    <script src="js/rewards.js"></script>
+    <script type="text/javascript" src="/js/notify.js"></script>
 
 </html>

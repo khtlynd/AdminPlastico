@@ -1,59 +1,118 @@
-var binArray = [];
 var fromuserjson = "";
 var userdata = "";
 var ulength = "";
+
+var frombinjson = "";
+var bindata = "";
+var binUlength = "";
+
 var lineChart = "";
+var bar_chart = null;
+
+// Return with commas in between
+var numberWithCommas = function(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+function getRandomColor() {
+    var letters = 'BCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return color;
+}
 
 function changeChart(year) {
-    binArray = [];
+    if (bar_chart != null) {
+        bar_chart.destroy();
+    }
+    var dataIsAppend = [];
 
-    for (var i = 1; i <= 12; i++) {
-        var month = i;
-        var binactivity = 0;
-        for (var x = 0; x < ulength; x++) {
-            if (fromuserjson[userdata[x]]["month"] == month && fromuserjson[userdata[x]]["year"] == year) {
-                binactivity = binactivity + 1
+    var dataPack = []
+    var dates = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+
+
+    //get all bin id
+    for (var x = 0; x < ulength; x++) {
+        if (fromuserjson[userdata[x]]["year"] == year) {
+            if (!dataIsAppend.includes(fromuserjson[userdata[x]]["bin_id"])) {
+                dataIsAppend.push(fromuserjson[userdata[x]]["bin_id"]);
             }
         }
-        binArray.push(binactivity);
     }
 
-    var ctx = document.getElementById("barChart");
-    lineChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-                label: "Bin A",
-                backgroundColor: "#3e95cd",
-                data: binArray,
-            }, {
-                label: "Bin B",
-                backgroundColor: "#8e5ea2",
-                data: binArray,
-            }]
-        },
-        options: {
-            title: {
-                display: true,
-                text: "Bin Activity in " + year
-            },
-            scales: {
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Sum of Activity'
-                    }
-                }],
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Month'
-                    }
-                }]
+    //input jumlah activity dalam setiap bin pada tiap bulan berbeda
+    for (var i = 0; i < dataIsAppend.length; i++) {
+        dataPackRow = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        for (var x = 0; x < ulength; x++) {
+            if (fromuserjson[userdata[x]]["year"] == year) {
+                if (dataIsAppend[i] == fromuserjson[userdata[x]]["bin_id"]) {
+                    var index = dates.indexOf(fromuserjson[userdata[x]]["month"]);
+                    dataPackRow[index] = dataPackRow[index] + 1
+                }
             }
         }
-    });
+        dataPack.push(dataPackRow)
+    }
+
+    //rename bin id to bin name
+    for (var i = 0; i < dataIsAppend.length; i++) {
+        for (var x = 0; x < binUlength; x++) {
+            if (dataIsAppend[i] == frombinjson[bindata[x]]["bin_id"]) {
+                dataIsAppend[i] = frombinjson[bindata[x]]["bin_name"]
+                break;
+            }
+        }
+    }
+
+    var items = {
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: []
+        },
+        options: {
+            animation: {
+                duration: 10,
+            },
+            tooltips: {
+                mode: 'label',
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
+                    }
+                }
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    gridLines: { display: false },
+                }],
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        callback: function(value) { return numberWithCommas(value); },
+                    },
+                }],
+            }, // scales
+            legend: { display: true }
+        } // options
+    }
+
+    for (var i = 0; i < dataIsAppend.length; i++) {
+        var color = getRandomColor();
+        items.data.datasets.push({
+            label: dataIsAppend[i],
+            data: dataPack[i],
+            backgroundColor: color,
+            hoverBackgroundColor: color,
+            hoverBorderWidth: 0
+        });
+    }
+
+    var bar_ctx = document.getElementById('barChart');
+    bar_chart = new Chart(bar_ctx, items);
 }
 
 var userchart = firebase.database().ref("userBin");
@@ -65,6 +124,15 @@ userchart.once("value", function(snapshot) {
     ulength = Object.keys(userdata).length;
 
     changeChart($("#selectYear").val())
+});
+
+var binRef = firebase.database().ref("bin");
+//get bit data
+binRef.once("value", function(snapshot) {
+    var binjson = JSON.stringify(snapshot);
+    frombinjson = JSON.parse(binjson);
+    bindata = Object.keys(frombinjson);
+    binUlength = Object.keys(bindata).length;
 });
 
 //deteksi perubahan dropdown year
