@@ -10,58 +10,82 @@
         <div class="main">
             <!-- NOTIFICATION SETTING  -->
             <div class="row">
-                <div class="container" style="padding-bottom:30px">
-                    <h3>Notification Setting</h3>
+                <div class="container" style="padding-bottom:20px">
+                    <h3>Email Notification Setting</h3>
                 </div>
             </div>
 
             <div class="row" style="padding-bottom:30px">
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-6 col-md-4">
                     <div class="card">
-                        <h5>Email Notification</h5>
-                        <p style="font-size: 15px; color: rgb(114, 114, 114);">Set the time of when to send email notification to user of for being inactive.</p>
-                        <form class="form-inline" action="javascript:void(0)">
-                            <label><b>Email Sent in (days):</b></label>
-                            <input type="number" id="email_time" name="email_time" placeholder="set time in days">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card">
-                        <h5>User inactivity</h5>
+                        <h5>User Inactivity</h5>
                         <p style="font-size: 15px; color: rgb(114, 114, 114);">Set the range of user's inactivity time to trigger sending email notification.</p>
-                        <form class="form-inline" action="javascript:void(0)">
-                            <label><b>Inactivity Threshold (days)):</b></label>
-                            <input type="number" id="email_time" name="email_time" placeholder="set time in days">
+                        <form action="javascript:void(0)">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label><b>Inactivity Threshold (days):</b></label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="number" id="user_time" name="email_time" placeholder="set time">
+                                </div>
+                            </div>
+                            <input type="submit" value="Set" id="userNotif" style="margin-top: 5px;">
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-6 col-md-4">
                     <div class="card">
-                        <h5>Bin inactivity</h5>
+                        <h5>Bin Inactivity</h5>
                         <p style="font-size: 15px; color: rgb(114, 114, 114);">Set the range of bin's inactivity time to trigger sending notification to admin.</p>
-                        <form class="form-inline" action="javascript:void(0)">
-                            <label><b>Inactivity Threshold (days)):</b></label>
-                            <input type="number" id="email_time" name="email_time" placeholder="set time in days">
+                        <form action="javascript:void(0)">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label><b>Inactivity Threshold (days):</b></label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="number" id="user_time" name="email_time" placeholder="set time">
+                                </div>
+                            </div>
+                            <input type="submit" value="Set" id="binNotif" style="margin-top: 5px;">
                         </form>
                     </div>
                 </div>
             </div>
 
             <!-- NOTIFICATION LOG -->
-            <div class="row">
-                <div class="container" style="padding-bottom:30px">
+            <div class="row" style="margin-top: 2%;">
+                <div class="container" style="padding-bottom:10px">
                     <h3>Notification Log</h3>
                 </div>
             </div>
-
             <div class="row">
-                <div class="col-lg-12 col-md-8">
-                    <div class="card"></div>
+                <div class="container" style="padding-bottom:30px">
+                    <div class="card" style="margin-bottom: 10px;">
+                        <h5 style="padding-bottom: 10px;">User Notification Log</h5>
+                        <table id="notifUser">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Inactivity</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <h5 style="padding-bottom: 10px;">Bin Notification Log</h5>
+                        <table id="notifBin">
+                            <thead>
+                                <tr>
+                                    <th>Bin Name</th>
+                                    <th>Inactivity</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
-
-
         </div>
 </body>
 
